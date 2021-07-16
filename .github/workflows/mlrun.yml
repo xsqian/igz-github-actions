@@ -25,5 +25,6 @@ jobs:
         V3IO_ACCESS_KEY: ${{ secrets.V3IO_ACCESS_KEY }}
         MLRUN_DBPATH: ${{ secrets.MLRUN_DBPATH }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         CMD: ${{ github.event.comment.body}}  
         COMMIT: ${{ github.sha}}
