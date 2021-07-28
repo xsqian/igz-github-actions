@@ -3,7 +3,8 @@ on: [issue_comment]
 
 jobs:
   submit-project:
-    if: github.event.issue.pull_request != null && startsWith(github.event.comment.body, '/run')
+    name: submit-project
+    if: github.event.issue.pull_request != null && startsWith(github.event.comment.body, '/test')
     runs-on: ubuntu-latest
 
     steps:
@@ -28,3 +29,5 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         CMD: ${{ github.event.comment.body}}  
         COMMIT: ${{ github.sha}}
+    - name: echo out an environment vaiable
+      run: echo ${{ secrets.SLACK_WEBHOOK }}
