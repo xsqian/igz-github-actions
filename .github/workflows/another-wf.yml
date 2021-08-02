@@ -1,3 +1,4 @@
+name: another-workflow
 on: issue_comment
 
 jobs:
