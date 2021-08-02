@@ -1,0 +1,20 @@
+name: third-workflow
+on: issue_comment
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: startWith(github.event.comment.body, '/dev')
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment with /dev on comment body ${{ github.event.comment.body }}"
+  issue_commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: startWith(github.event.comment.body, '/qa')
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment with /qa on comment body ${{ github.event.comment.body }}"
