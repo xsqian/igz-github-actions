@@ -5,7 +5,7 @@ jobs:
   pr_commented:
     # This job only runs for pull request comments
     name: PR comment
-    if: startWith(github.event.comment.body, '/dev')
+    if: startsWith(github.event.comment.body, '/dev')
     runs-on: ubuntu-latest
     steps:
       - run: |
@@ -13,7 +13,7 @@ jobs:
   issue_commented:
     # This job only runs for issue comments
     name: Issue comment
-    if: startWith(github.event.comment.body, '/qa')
+    if: startsWith(github.event.comment.body, '/qa')
     runs-on: ubuntu-latest
     steps:
       - run: |
